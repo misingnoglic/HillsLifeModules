@@ -51,3 +51,19 @@ def winner(phenny, input):
         phenny.say(', '.join(winners)+ " with "+str(foo[winners[0]])+" points")
 
 winner.commands = ["winners"]
+
+def scores(phenny, input):
+    scores = ''
+    foo = eval((open('points.txt')).read())
+    if len(foo)==0: phenny.say("Nobody entered the contest yet!")
+    else:
+        while len(foo)>0:
+            high = max(foo.values())
+            for x in foo.keys():
+                if foo[x]==high:
+                    scores += (x+": "+str(foo[x])+' ')
+                    del foo[x]
+
+        phenny.say(scores)
+
+scores.commands = ['scores']
