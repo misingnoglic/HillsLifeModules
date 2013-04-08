@@ -37,7 +37,7 @@ def subpoint(phenny, input):
         new = open('points.txt', 'w')
         new.write(str(foo))
         phenny.say(name+": "+str(foo[name]))
-subpoint.commands = ['subpoint']
+subpoint.commands = ['subpoint', 'delpoint']
 
 
 def winner(phenny, input):
@@ -67,3 +67,8 @@ def scores(phenny, input):
         phenny.say(scores)
 
 scores.commands = ['scores']
+
+def pointshelp(phenny, input):
+    phenny.say('''Welcome to points, where the points don't matter! Type .showpoints USER to see their points, .addpoint USER to give them a point, .subpoint USER to make them lose a point, .winners to see who is in the lead, and .scores to see all the scores. Have fun!''' )
+
+pointshelp.commands = ['pointshelp']
