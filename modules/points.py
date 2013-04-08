@@ -11,7 +11,7 @@ showpoints.commands = ["showpoints"]
 
 def addpoints(phenny, input):
     foo = eval((open('points.txt')).read())
-    name=((input.group()).split())[1]
+    name=(' '.join(((input.group()).split())[1:])).lower()
     if name in foo.keys():
         foo[name]+=1
         phenny.say(name+": "+str(foo[name]))
@@ -26,7 +26,7 @@ addpoints.commands = ['addpoint']
 
 def subpoint(phenny, input):
     foo = eval((open('points.txt')).read())
-    name=((input.group()).split())[1]
+    name=(' '.join(((input.group()).split())[1:])).lower()
     if name in foo.keys():
         foo[name]-=1
         phenny.say(name+": "+str(foo[name]))
