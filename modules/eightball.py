@@ -72,6 +72,6 @@ def showresponses(phenny,input):
 showresponses.commands = ["8show"]
 
 def ballhelp(phenny,input):
-    phenny.say ("Type .8 to get your answer, .8add ANSWER to add a result, .8del ANSWER to delete an existing answer, .8delindex INTEGER to remove that indexed answer (start counting at 0), .8show to show all possible answers, and .8default to reset the answers. Have fun!")
+    phenny.say ("Type .8 to get your answer, .8add ANSWER to add a result, .8del ANSWER to delete an existing answer, .8delindex INTEGER to remove that indexed answer (start counting at 0), .8show to show all possible answers, and .8default to reset the answers (trusted users only). Have fun!")
 
 ballhelp.commands = ['8help'] 
