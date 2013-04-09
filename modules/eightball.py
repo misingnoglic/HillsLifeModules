@@ -1,5 +1,15 @@
 from random import randrange
 
+def breakupstring(string):
+    LOS = []
+    while len(string)>437:
+        newstr = string[:437]
+        LOS+=[newstr]
+        string = string[437:]
+    LOS += [string]
+    return LOS
+
+#sortchoices.commands = ['8sort']
 def eightball(phenny, input):
     foo = open("8ball.txt")
     phrases = (foo.read()).split("^~`")
@@ -13,10 +23,13 @@ def addresponse(phenny, input):
     if "^~`" in str( " ".join(stuff[1:]) ):
         phenny.say("Invalid Characters")
     else:
-        newphrases = phrases+"^~`"+str( " ".join(stuff[1:]) )
+        nowphrases = phrases+"^~`"+str( " ".join(stuff[1:]) )
         foo = open("8ball.txt", 'w')
-        foo.write(newphrases)
-        phenny.say(str(newphrases.split("^~`")))
+        foo.write(nowphrases)
+        #phenny.say(str(newphrases.split("^~`")))
+        for part in breakupstring(str(nowphrases.split("^~`"))):
+            phenny.say(str(part))
+
     
 addresponse.commands = ['8add', '8balladd']
 
@@ -32,7 +45,9 @@ def removeresponse(phenny, input):
         nowphrases = "^~`".join(phrases)
         foo = open("8ball.txt", 'w')
         foo.write(nowphrases)
-        phenny.say(str(nowphrases.split("^~`")))
+        for part in breakupstring(str(nowphrases.split("^~`"))):
+            phenny.say(str(part))
+        #phenny.say(str(nowphrases.split("^~`")))
 removeresponse.commands = ["8del"]
 
 def removeindex(phenny,input):
@@ -52,7 +67,9 @@ def removeindex(phenny,input):
             nowphrases = "^~`".join(phrases)
             foo = open("8ball.txt", 'w')
             foo.write(nowphrases)
-            phenny.say(str(nowphrases.split("^~`")))
+            for part in breakupstring(str(nowphrases.split("^~`"))):
+                phenny.say(str(part))
+                #phenny.say(str(nowphrases.split("^~`")))
 removeindex.commands = ["8delindex"]
     
 
@@ -67,11 +84,25 @@ balldefault.commands = ["8default"]
 
 def showresponses(phenny,input):
     foo = open("8ball.txt")
-    phrases = (foo.read()).split("^~`")
-    phenny.say(str(phrases))
+    phrases = str((foo.read()).split("^~`"))
+    for part in breakupstring(phrases):
+        phenny.say(part)
+    
 showresponses.commands = ["8show"]
 
 def ballhelp(phenny,input):
     phenny.say ("Type .8 to get your answer, .8add ANSWER to add a result, .8del ANSWER to delete an existing answer, .8delindex INTEGER to remove that indexed answer (start counting at 0), .8show to show all possible answers, and .8default to reset the answers (trusted users only). Have fun!")
 
 ballhelp.commands = ['8help'] 
+
+def ballsort(phenny,input):
+    foo = open("8ball.txt")
+    phrases = (foo.read()).split("^~`")
+    phrases.sort()
+    nowphrases = "^~`".join(phrases)
+    foo = open("8ball.txt", 'w')
+    foo.write(nowphrases)
+    for part in breakupstring(str(nowphrases.split("^~`"))):
+        phenny.say(str(part))
+
+ballsort.commands = ['8sort']
