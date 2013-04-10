@@ -13,5 +13,5 @@ def lmddg(phenny, input):
     phrase = '%20'.join(phrase)
     phenny.say('http://lmddgtfy.net/?q='+phrase)
 
-lmgtfy.commands = ['lmddg','lmddgtfy']
+lmddg.commands = ['lmddg','lmddgtfy']
 
