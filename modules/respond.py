@@ -15,13 +15,13 @@ def addresponse(phenny,input):
         phenny.say("Keyword already being used!")
     else:
         foo[inp[0]]= str(inp[1])
-        new = open('points.txt', 'w')
+        new = open('responses.txt', 'w')
         new.write(str(foo))
         phenny.say("Response Added!")
 
-addresponse.commands = ['addr','addresponse']
+addresponse.commands = ['addr','addresponse', 'radd']
 
 def responsehelp(phenny,input):
-    phenny.say("To get a response type .r CODE. To add one type .r CODE RESPONSE. I intended this to save links but you can use it for anything")
+    phenny.say("To get a response type .r CODE. To add one type .radd CODE RESPONSE. I intended this to save links but you can use it for anything")
     
 responsehelp.commands = ['rhelp']
