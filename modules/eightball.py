@@ -16,6 +16,11 @@ def eightball(phenny, input):
     phenny.say(phrases[randrange(len(phrases))])
 eightball.commands = ['8', '!8', '8ball']
 
+def eightyesno(phenny,input):
+    phenny.say(['Yes','No'][randrange(2)])
+
+eightyesno.commands = ['8y','8yn']
+
 def addresponse(phenny, input):
     foo = open("8ball.txt")
     stuff= (input.group()).split()
