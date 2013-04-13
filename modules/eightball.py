@@ -111,3 +111,13 @@ def ballsort(phenny,input):
         phenny.say(str(part))
 
 ballsort.commands = ['8sort']
+
+def randnumb(phenny,input):
+    inp = str(input.group(2))
+    a = inp.split()
+    if len(a)!=2: phenny.say("Invalid input, please type .rnum LOWERINT HIGHERINT - for example .rnum 1 5 will return a number from 1 to 5 (inclusive)")
+    else:
+        a = [int(x) for x in a]
+        phenny.say(str(randrange(a[0],a[1]+1)))
+
+randnumb.commands = ['rnumb','randnumb','rnum','randnub']
