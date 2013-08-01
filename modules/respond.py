@@ -4,7 +4,7 @@ def returnresponse(phenny,input):
     try:
         phenny.say(str(foo[key]))
     except:
-        phenny.say("Item not found. To add a keyword please type '.radd [phrase] [response]")
+        phenny.say("Item not found. To add a keyword please type '.radd [phrase] [response]'")
 
 returnresponse.commands = ['r','respond']
 

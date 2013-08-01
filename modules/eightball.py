@@ -22,6 +22,8 @@ def eightyesno(phenny,input):
 eightyesno.commands = ['8y','8yn']
 
 def addresponse(phenny, input):
+    #This comment doesn't do anything but adding it makes my program work
+
     foo = open("8ball.txt")
     stuff= (input.group()).split()
     phrases = str(foo.read())#.split("^~`")
@@ -115,9 +117,9 @@ ballsort.commands = ['8sort']
 def randnumb(phenny,input):
     inp = str(input.group(2))
     a = inp.split()
-    if len(a)!=2: phenny.say("Invalid input, please type .rnum LOWERINT HIGHERINT - for example .rnum 1 5 will return a number from 1 to 5 (inclusive)")
+    if len(a)<2: phenny.say("Invalid input, please type .rnum LOWERINT HIGHERINT - for example .rnum 1 5 will return a number from 1 to 5 (inclusive)")
     else:
-        a = [int(x) for x in a]
-        phenny.say(str(randrange(a[0],a[1]+1)))
+        #a = [int(x) for x in a]
+        phenny.say(str(randrange(int(a[0]),int(a[1])+1)))
 
 randnumb.commands = ['rnumb','randnumb','rnum','randnub']

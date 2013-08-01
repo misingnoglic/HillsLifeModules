@@ -22,4 +22,3 @@ def duckluck(phenny, input):
     phenny.say('https://duckduckgo.com/?q=!%20'+phrase)
 
 duckluck.commands = ['dl','duckluck','imfeelingducky']
-
