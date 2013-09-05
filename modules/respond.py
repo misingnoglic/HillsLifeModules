@@ -29,3 +29,6 @@ def responsehelp(phenny,input):
     phenny.say("To get a response type .r CODE. To add one type .radd CODE RESPONSE. I intended this to save links but you can use it for anything")
     
 responsehelp.commands = ['rhelp']
+
+def delresponse(phenny,input):
+    
